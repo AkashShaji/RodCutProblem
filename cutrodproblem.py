@@ -1,12 +1,10 @@
 ######################################################################################
 #
-#
-#  Name:
-#  Date:
+#  Name:Akash Shaji
+#  Date:4/20/18
 #
 #  This project compares two approaches to solving the cut rod problem.  A top down
 #  approach and a bottom up approach.
-#
 #   
 #
 ####################################################################################
