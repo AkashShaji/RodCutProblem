@@ -60,25 +60,30 @@ while userInput != "q":
         print("3:Analyze Both")
         print("q:Quit")
         userInput = input(">>>")
-    if(userInput == "1" or userInput == "3"):
-        print("analize 1")
-    if(userInput == "2" or userInput == "3"):
-        print("analize 2")
-    userInput = input("Press enter to continue:")
-pricelist = [3,5,8,9,10,17,17,18]
+    if(userInput == "1"):
+        pricelist = open(file1,"r")
+        pricelist = list(eval(pricelist.read()))
+        
+        start_time_topDownCutRod = time.clock()
+        topDownCutRod(pricelist)
+        end_time_topDownCutRod = time.clock()
+        print("topDownCutRod CPU time (seconds): "+
+                str(end_time_topDownCutRod - start_time_topDownCutRod))
+        print(pricelist)
+    elif(userInput == "2"):
+        pricelist = [3,5,8,9,10,17,17,18]
+        start_time_BottumCutRod = time.clock()
+        BottumCutRod(pricelist)
+        end_time_BottumCutRod = time.clock()
+        print("BottumCutRod CPU time (seconds): "+
+                str(end_time_BottumCutRod - start_time_BottumCutRod))
+        print(pricelist)
+    elif(userInput == "3"):
+        PrintCutRod(pricelist)
+    if(userInput!="q")
+        temp = input("Press enter to continue:")
 
-start_time_topDownCutRod = time.clock()
-topDownCutRod(pricelist)
-end_time_topDownCutRod = time.clock()
-print("topDownCutRod CPU time (seconds): "  +str(end_time_topDownCutRod - start_time_topDownCutRod))
-print(pricelist)
 
-pricelist = [3,5,8,9,10,17,17,18]
+    
 
-start_time_BottumCutRod = time.clock()
-BottumCutRod(pricelist)
-end_time_BottumCutRod = time.clock()
-print("BottumCutRod CPU time (seconds): "  +str(end_time_BottumCutRod - start_time_BottumCutRod))
-print(pricelist)
 
-PrintCutRod(pricelist)
