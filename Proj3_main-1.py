@@ -48,40 +48,64 @@ file2 = "price2.txt"
 #If the user chooses an n larger than the pricelist can handle, the user is asked to try again.
 
 
+#opening the files
+pricelist1 = open(file1,"r")
+pricelist1 = list(eval(pricelist1.read()))
+pricelist2 = open(file2,"r")
+pricelist2 = list(eval(pricelist2.read()))
 
+
+#loop exit variable
 userInput = -1
 while userInput != "q":    
     userInput = -1
-    while(userInput != "1" and userInput != "2" and userInput != "3" and userInput !="q"):
+    while userInput != "1" and userInput != "2" and userInput != "3" and userInput !="q" :
         print("Welcome to the cutRod")
         print("Options:")
         print("1:Pricelist 1")
         print("2:Pricelist 2")
-        print("3:Analyze Both")
+        print("3:Analyze both for all values")
         print("q:Quit")
         userInput = input(">>>")
-    if(userInput == "1"):
-        pricelist = open(file1,"r")
-        pricelist = list(eval(pricelist.read()))
-        
+    if userInput == "1" :
+        n = int(input("Length of the rod \n>>>"))
+        pricelist = pricelist1.copy()
         start_time_topDownCutRod = time.clock()
-        topDownCutRod(pricelist)
+        topDownCutRod(pricelist,n)
         end_time_topDownCutRod = time.clock()
         print("topDownCutRod CPU time (seconds): "+
                 str(end_time_topDownCutRod - start_time_topDownCutRod))
-        print(pricelist)
-    elif(userInput == "2"):
-        pricelist = [3,5,8,9,10,17,17,18]
+
+        pricelist = pricelist2.copy()
         start_time_BottumCutRod = time.clock()
-        BottumCutRod(pricelist)
+        BottumCutRod(pricelist,n)
         end_time_BottumCutRod = time.clock()
         print("BottumCutRod CPU time (seconds): "+
                 str(end_time_BottumCutRod - start_time_BottumCutRod))
         print(pricelist)
-    elif(userInput == "3"):
-        PrintCutRod(pricelist)
-    if(userInput!="q")
-        temp = input("Press enter to continue:")
+    elif userInput == "2" :
+        n = int(input("Length of the rod \n>>>"))
+
+        pricelist = pricelist2.copy()
+        start_time_topDownCutRod = time.clock()
+        topDownCutRod(pricelist,n)
+        end_time_topDownCutRod = time.clock()
+        print("topDownCutRod CPU time (seconds): "+
+                str(end_time_topDownCutRod - start_time_topDownCutRod))
+
+        pricelist = pricelist2.copy()
+        start_time_BottumCutRod = time.clock()
+        BottumCutRod(pricelist,n)
+        end_time_BottumCutRod = time.clock()
+        print("BottumCutRod CPU time (seconds): "+
+                str(end_time_BottumCutRod - start_time_BottumCutRod))
+        print(pricelist)
+    elif userInput == "3":
+        PrintCutRod(pricelist1)
+        PrintCutRod(pricelist2)
+
+    if userInput!="q":
+        temp = input("Press enter to continue ")
 
 
     
