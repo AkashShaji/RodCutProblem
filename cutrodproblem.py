@@ -22,8 +22,14 @@ def BottumCutRod(pricelist,n):
                 q = pricelist[y-1]+r[x-y]
                 s[x] = y
         r[x] = q
-    print(r)
-    print(s)
+    price = 0
+    solution = []
+    while(n > 0):
+        solution.append(s[n])
+        price+=pricelist[s[n]-1]
+        n-=s[n]
+    print(solution)
+    print(price)
 
 def topDownCutRod(pricelist,n):
     if(n == 0):
