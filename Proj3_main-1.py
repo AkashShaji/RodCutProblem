@@ -76,7 +76,7 @@ while userInput != "q":
         print("topDownCutRod CPU time (seconds): "+
                 str(end_time_topDownCutRod - start_time_topDownCutRod))
 
-        pricelist = pricelist2.copy()
+        pricelist = pricelist1.copy()
         start_time_BottumCutRod = time.clock()
         BottumCutRod(pricelist,n)
         end_time_BottumCutRod = time.clock()
@@ -106,7 +106,6 @@ while userInput != "q":
 
     if userInput!="q":
         temp = input("Press enter to continue ")
-
 
     
 
