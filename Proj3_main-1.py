@@ -60,6 +60,8 @@ userInput = -1
 while userInput != "q":    
     userInput = -1
     while userInput != "1" and userInput != "2" and userInput != "3" and userInput !="q" :
+
+        print("\n\n\n")
         print("Welcome to the cutRod")
         print("Options:")
         print("1:Pricelist 1")
@@ -69,43 +71,49 @@ while userInput != "q":
         userInput = input(">>>")
     if userInput == "1" :
         n = int(input("Length of the rod \n>>>"))
-        pricelist = pricelist1.copy()
-        start_time_topDownCutRod = time.clock()
-        topDownCutRod(pricelist,n)
-        end_time_topDownCutRod = time.clock()
-        print("topDownCutRod CPU time (seconds): "+
-                str(end_time_topDownCutRod - start_time_topDownCutRod))
 
-        pricelist = pricelist1.copy()
-        start_time_BottumCutRod = time.clock()
-        BottumCutRod(pricelist,n)
-        end_time_BottumCutRod = time.clock()
-        print("BottumCutRod CPU time (seconds): "+
-                str(end_time_BottumCutRod - start_time_BottumCutRod))
-        print(pricelist)
+        if(n > len(pricelist1)):
+            print("n is too large")
+        else:
+            pricelist = pricelist1.copy()
+            start_time_topDownCutRod = time.clock()
+            topDownCutRod(pricelist,n)
+            end_time_topDownCutRod = time.clock()
+            print("topDownCutRod CPU time (seconds): "+
+                    str(end_time_topDownCutRod - start_time_topDownCutRod))
+
+            pricelist = pricelist1.copy()
+            start_time_BottumCutRod = time.clock()
+            BottumCutRod(pricelist,n)
+            end_time_BottumCutRod = time.clock()
+            print("BottumCutRod CPU time (seconds): "+
+                    str(end_time_BottumCutRod - start_time_BottumCutRod))
+            print(pricelist)
     elif userInput == "2" :
         n = int(input("Length of the rod \n>>>"))
+    
+        if(n > len(pricelist2)):
+            print("n is too large")
+        else:
+            pricelist = pricelist2.copy()
+            start_time_topDownCutRod = time.clock()
+            topDownCutRod(pricelist,n)
+            end_time_topDownCutRod = time.clock()
+            print("topDownCutRod CPU time (seconds): "+
+                    str(end_time_topDownCutRod - start_time_topDownCutRod))
 
-        pricelist = pricelist2.copy()
-        start_time_topDownCutRod = time.clock()
-        topDownCutRod(pricelist,n)
-        end_time_topDownCutRod = time.clock()
-        print("topDownCutRod CPU time (seconds): "+
-                str(end_time_topDownCutRod - start_time_topDownCutRod))
-
-        pricelist = pricelist2.copy()
-        start_time_BottumCutRod = time.clock()
-        BottumCutRod(pricelist,n)
-        end_time_BottumCutRod = time.clock()
-        print("BottumCutRod CPU time (seconds): "+
-                str(end_time_BottumCutRod - start_time_BottumCutRod))
-        print(pricelist)
+            pricelist = pricelist2.copy()
+            start_time_BottumCutRod = time.clock()
+            BottumCutRod(pricelist,n)
+            end_time_BottumCutRod = time.clock()
+            print("BottumCutRod CPU time (seconds): "+
+                    str(end_time_BottumCutRod - start_time_BottumCutRod))
+            print(pricelist)
     elif userInput == "3":
         PrintCutRod(pricelist1)
         PrintCutRod(pricelist2)
-
-    if userInput!="q":
-        temp = input("Press enter to continue ")
+#    if userInput!="q":
+#        temp = input("Press enter to continue ")
 
     
 
